@@ -32,6 +32,12 @@ dependencies {
 }
 
 
+
+jar {
+  baseName = rootProject.name
+  appendix = project.name
+}
+
 uploadArchives {
   repositories {
     mavenDeployer {
