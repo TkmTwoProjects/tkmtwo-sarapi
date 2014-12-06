@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+  
+  <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+    <property name="ignoreResourceNotFound" value="false" />
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+    <property name="locations">
+      <list>
+        <value>classpath:sarapi-build.properties</value>
+      </list>
+    </property>
+  </bean>  
+
+  <import resource="classpath:com/tkmtwo/sarapi/ars-contexts.xml"/>
+  <import resource="classpath:com/tkmtwo/sarapi/ars-admin-source.xml"/>
+
+
+
+
+
+  <bean id="personNameQueryNoQualification"
+        class="com.tkmtwo.sarapi.mapping.PersonNameQuery">
+    <property name="template">
+      <ref bean="arsAdminTemplate" />
+    </property>
+    <property name="schemaHelper">
+      <ref bean="arsSchemaHelper" />
+    </property>
+    <property name="formName" value="SARAPI:Person" />
+  </bean>
+  
+  
+  
+  
+  <bean id="personNameQueryByFirstName"
+        class="com.tkmtwo.sarapi.mapping.PersonNameQuery">
+    <property name="template">
+      <ref bean="arsAdminTemplate" />
+    </property>
+    <property name="schemaHelper">
+      <ref bean="arsSchemaHelper" />
+    </property>
+    <property name="formName" value="SARAPI:Person" />
+
+    <property name="qualifierInfoCreator">
+      
+      <bean class="com.tkmtwo.sarapi.InterpolatingQualifierInfoCreator">
+        <property name="schemaHelper">
+          <ref bean="arsSchemaHelper" />
+        </property>
+        <property name="formName" value="SARAPI:Person" />
+        <property name="qualifierString">
+          <value>
+            <![CDATA[
+                     'First Name' = ${firstName}
+            ]]>
+          </value>
+        </property>
+      </bean>
+    </property>
+
+  </bean>
+
+
+
+
+  <bean id="personNameQueryByFirstNameLike"
+        class="com.tkmtwo.sarapi.mapping.PersonNameQuery">
+    <property name="template">
+      <ref bean="arsAdminTemplate" />
+    </property>
+    <property name="schemaHelper">
+      <ref bean="arsSchemaHelper" />
+    </property>
+    <property name="formName" value="SARAPI:Person" />
+
+    <property name="qualifierInfoCreator">
+      
+      <bean class="com.tkmtwo.sarapi.InterpolatingQualifierInfoCreator">
+        <property name="schemaHelper">
+          <ref bean="arsSchemaHelper" />
+        </property>
+        <property name="formName" value="SARAPI:Person" />
+        <property name="qualifierString">
+          <value>
+            <![CDATA[
+                     'First Name' LIKE ${firstName}
+            ]]>
+          </value>
+        </property>
+      </bean>
+      
+    </property>
+  </bean>
+  
+  
+</beans>

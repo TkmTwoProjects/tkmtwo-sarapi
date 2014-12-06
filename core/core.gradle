@@ -1,0 +1,57 @@
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+apply plugin: 'checkstyle'
+checkstyle {
+  configFile = new File(rootDir, "config/checkstyle.xml")
+  //sourceSets = [sourceSets.main, sourceSets.test]
+  sourceSets = [sourceSets.main]
+}
+
+  
+
+dependencies {
+  compile "com.tkmtwo:tkmtwo-arapi:7.6.4.2.201401310252"
+  compile "com.tkmtwo:tkmtwo-interpolate:${depVersionTkmTwoInterpolate}"
+  compile "com.tkmtwo:tkmtwo-timex:${depVersionTkmTwoTimex}"
+  compile "commons-pool:commons-pool:${depVersionCommonsPool}"
+  compile "org.slf4j:slf4j-api:${depVersionSlf4J}"
+  compile "org.springframework.security:spring-security-core:${depVersionSpringSecurity}"
+  compile "org.springframework:spring-jdbc:${depVersionSpringFramework}"
+
+  runtime "ch.qos.logback:logback-classic:${depVersionLogback}"
+  runtime "ch.qos.logback:logback-core:${depVersionLogback}"
+  runtime "org.slf4j:jcl-over-slf4j:${depVersionSlf4J}"
+  runtime "org.slf4j:jul-to-slf4j:${depVersionSlf4J}"
+  runtime "org.slf4j:log4j-over-slf4j:${depVersionSlf4J}"
+
+  testCompile "junit:junit:${depVersionJunit}"
+  testCompile "org.springframework:spring-test:${depVersionSpringFramework}"
+
+}
+
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      repository(url: "file://$buildDir/repo")
+      //repository(url: "file://$rootDir/../tkmtwo-mvn-repo/release")
+    }
+  }
+}
+
+
+sourceSets {
+  test {
+    resources {
+      srcDir "${System.env.HOME}/.gradle/resources"
+    }
+  }
+}
+
+
+configurations {
+  all*.exclude module: 'commons-logging'
+  all*.exclude module: 'log4j'
+}

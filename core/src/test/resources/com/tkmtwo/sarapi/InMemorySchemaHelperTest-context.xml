@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+  
+  <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+    <property name="ignoreResourceNotFound" value="false" />
+    <property name="ignoreUnresolvablePlaceholders" value="false" />
+    <property name="locations">
+      <list>
+        <value>classpath:sarapi-build.properties</value>
+      </list>
+    </property>
+  </bean>  
+
+  <import resource="classpath:com/tkmtwo/sarapi/ars-contexts.xml"/>
+  <import resource="classpath:com/tkmtwo/sarapi/ars-admin-source.xml"/>
+  
+  <!--
+  <util:list id="arsContexts">
+    <bean class="com.tkmtwo.sarapi.ArsContext">
+      <property name="hostName" value="${ars.host.0}" />
+      <property name="hostPort" value="${ars.port.0}" />
+    </bean>
+  </util:list>
+  <bean id="arsUserSource"
+        class="com.tkmtwo.sarapi.ArsUserSource">
+    <property name="arsContexts" ref="arsContexts" />
+    <property name="userName" value="${ars.uname.0}" />
+    <property name="userPassword" value="${ars.passwd.0}" />
+  </bean>
+  <bean id="arsTemplate" class="com.tkmtwo.sarapi.ArsTemplate">
+    <property name="arsUserSource">
+      <ref bean="arsUserSource" />
+    </property>
+  </bean>
+  <bean id="arsSchemaHelper" class="com.tkmtwo.sarapi.InMemorySchemaHelper">
+    <property name="arsTemplate">
+      <ref bean="arsTemplate" />
+    </property>
+  </bean>
+  -->
+  
+  
+</beans>
+

@@ -1,0 +1,458 @@
+char-set: UTF-8
+#
+#  File exported Sat Dec 06 02:45:53 2014
+#
+begin schema
+   name           : SARAPI:Person
+   core-version   : 2
+   upgrade-version: 0
+   num-fields     : 21
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   default-vui    : Default Administrator View
+   num-vuis       : 1
+   export-version : 11
+   schema-type    : 1
+   next-field-id  : 536870912
+   get-list-flds  : 5\1\10\0\\536870913\10\0\\536870914\10\0\\536870915\10\0\\536870916\10\0\
+   object-prop    : 4\60050\2\1\60062\2\1\90015\2\4\90016\4\1\1\
+   archive        : 0\0\0
+      arch-time   : 0\0\0\0
+      arch-from   : 
+   audit          : 0\0\0\0\
+vui  {
+   id             : 536870912
+   name           : Default Administrator View
+   label          : Default Administrator View
+   timestamp      : 1393970042
+   vui-locale     : 
+   vui-type       : 1
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   display-prop   : 1\20\4\26\Default Administrator View\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1
+   name           : Request ID
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 15
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\14\3\41\2\5399\2500\28233\4600\4\6\1\7\40\2147483640\20\4\10\Request ID\21\41\2\0\400\7086\2100\27\8\16\28\6\4\29\6\1\60\40\1\65\41\2\0\0\0\0\143\4&
+ display-instance : 0\4294967295\151\41\2\7649\0\22834\2100\170\40\0\231\6\1\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 2
+   name           : Submitter
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1394363564
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : $-1$
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\6074\5000\31158\7100\4\6\1\7\40\2147483641\20\4\9\Submitter\21\41\2\0\400\6411\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0\0\0\&
+ display-instance : 0\66\41\2\22722\0\25084\2100\143\40\4294967295\151\41\2\6974\0\22159\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 3
+   name           : Create Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5061\7500\31157\9600\4\6\1\7\40\2147483642\20\4\11\Create Date\21\41\2\0\400\7424\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2\0\0&
+ display-instance : \0\0\66\41\2\23734\0\26096\2100\143\40\4294967295\151\41\2\7986\0\23171\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 4
+   name           : Assigned To
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5511\10000\31157\12100\4\6\1\7\40\2147483643\20\4\11\Assigned To\21\41\2\0\400\6974\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0&
+ display-instance : \0\0\0\66\41\2\23284\0\25646\2100\143\40\4294967295\151\41\2\7536\0\22721\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 5
+   name           : Last Modified By
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\2699\12500\31157\14600\4\6\1\7\40\2147483644\20\4\16\Last Modified By\21\41\2\0\400\9786\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\33\65\4&
+ display-instance : 1\2\0\0\0\0\66\41\2\26096\0\28458\2100\143\40\4294967295\151\41\2\10348\0\25533\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 6
+   name           : Modified Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\4049\15000\31158\17100\4\6\1\7\40\2147483645\20\4\13\Modified Date\21\41\2\0\400\8436\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2&
+ display-instance : \0\0\0\0\66\41\2\24746\0\27108\2100\143\40\4294967295\151\41\2\8998\0\24183\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 7
+   name           : Status
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 1
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   enum-value     : New
+   enum-value     : Assigned
+   enum-value     : Fixed
+   enum-value     : Rejected
+   enum-value     : Closed
+   default        : 0
+   permission     : 3\1
+   permission     : 4\2
+ display-instance : 536870912\17\3\41\2\7986\17500\42406\19300\4\6\1\7\40\2147483646\20\4\6\Status\21\41\2\0\400\4499\1800\27\8\16\28\6\4\29\6\1\60\40\1\61\40\0\64\6\1\65\41\2\0&
+ display-instance : \0\0\0\143\40\4294967295\151\41\2\5061\400\34419\2200\170\40\0\230\4\46\5\0\New\1\Assigned\2\Fixed\3\Rejected\4\Closed\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 8
+   name           : Short Description
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : .
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\1012\20000\31158\22100\4\6\1\7\40\2147483647\20\4\17\Short Description\21\41\2\0\400\11473\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\50\65&
+ display-instance : \41\2\0\0\0\0\66\41\2\27784\0\30146\2100\143\40\4294967295\151\41\2\12035\0\27220\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 15
+   name           : Status History
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 3\1
+   permission     : 4\2
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870913
+   name           : First Name
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\49718\6800\76714\8900\4\6\1\5\6\2\7\40\2147483648\14\40\1\20\4\10\First Name\21\41\2\0\400\8323\2100\60\40\1\66\41\2\24634\0\26996\2100\1&
+ display-instance : 43\40\4294967295\151\41\2\8886\0\24071\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870914
+   name           : Last Name
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\48931\11300\76602\13400\4\6\1\5\6\2\7\40\2147483649\14\40\1\20\4\9\Last Name\21\41\2\0\400\8998\2100\60\40\1\66\41\2\25309\0\27671\2100\1&
+ display-instance : 43\40\4294967295\151\41\2\9561\0\24746\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870915
+   name           : Age
+   datatype       : 2
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   range-low      : -2147483647
+   range-high     : 2147483647
+   permission     : 0\2
+ display-instance : 536870912\16\3\41\2\52868\16900\75477\19000\4\6\1\5\6\2\7\40\2147483650\14\40\1\20\4\3\Age\21\41\2\0\400\6861\2100\62\6\1\66\41\2\0\0\0\0\143\40\4294967295\1&
+ display-instance : 51\41\2\7424\0\22609\2100\170\40\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870916
+   name           : Gender
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393970042
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   enum-value     : Male
+   enum-value     : Female
+   permission     : 0\2
+ display-instance : 536870912\17\3\41\2\54555\21800\69853\23600\4\6\1\5\6\2\7\40\2147483651\14\40\1\20\4\6\Gender\21\41\2\0\400\4274\1800\60\40\1\64\6\1\143\40\4294967295\151\41&
+ display-instance : \2\4836\400\15297\2200\170\40\0\230\4\17\2\0\Male\1\Female\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870917
+   name           : WorkCcNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\6749\33600\34308\35700\4\6\1\5\6\2\7\40\2147483652\14\40\1\20\4\12\WorkCcNumber\21\41\2\0\400\8886\2100\60\40\1\66\41\2\25196\0\27558\210&
+ display-instance : 0\143\40\4294967295\151\41\2\9448\0\24633\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870918
+   name           : WorkAcNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\6974\37500\34533\39600\4\6\1\5\6\2\7\40\2147483653\14\40\1\20\4\12\WorkAcNumber\21\41\2\0\400\8886\2100\60\40\1\66\41\2\25196\0\27558\210&
+ display-instance : 0\143\40\4294967295\151\41\2\9448\0\24633\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870919
+   name           : WorkLocalNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\6524\41500\35545\43600\4\6\1\5\6\2\7\40\2147483654\14\40\1\20\4\15\WorkLocalNumber\21\41\2\0\400\10348\2100\60\40\1\66\41\2\26659\0\29021&
+ display-instance : \2100\143\40\4294967295\151\41\2\10911\0\26096\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870920
+   name           : MobileLocalNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\45106\40400\74689\42500\4\6\1\5\6\2\7\40\2147483655\14\40\1\20\4\17\MobileLocalNumber\21\41\2\0\400\10911\2100\60\40\1\66\41\2\27221\0\29&
+ display-instance : 583\2100\143\40\4294967295\151\41\2\11473\0\26658\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870921
+   name           : MobileAcNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\45556\36400\73677\38500\4\6\1\5\6\2\7\40\2147483656\14\40\1\20\4\14\MobileAcNumber\21\41\2\0\400\9448\2100\60\40\1\66\41\2\25759\0\28121\&
+ display-instance : 2100\143\40\4294967295\151\41\2\10011\0\25196\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870922
+   name           : MobileCcNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\45331\32500\73452\34600\4\6\1\5\6\2\7\40\2147483657\14\40\1\20\4\14\MobileCcNumber\21\41\2\0\400\9448\2100\60\40\1\66\41\2\25759\0\28121\&
+ display-instance : 2100\143\40\4294967295\151\41\2\10011\0\25196\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870923
+   name           : WorkFullNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\8098\29100\35994\31200\4\6\1\5\6\2\7\40\2147483658\14\40\1\20\4\14\WorkFullNumber\21\41\2\0\400\9223\2100\60\40\1\66\41\2\25534\0\27896\2&
+ display-instance : 100\143\40\4294967295\151\41\2\9786\0\24971\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870924
+   name           : MobileFullNumber
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1394899021
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\48256\29100\76714\31200\4\6\1\5\6\2\7\40\2147483659\14\40\1\20\4\16\MobileFullNumber\21\41\2\0\400\9786\2100\60\40\1\66\41\2\26096\0\2845&
+ display-instance : 8\2100\143\40\4294967295\151\41\2\10348\0\25533\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+end

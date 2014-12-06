@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+  
+  <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+    <property name="ignoreResourceNotFound" value="false" />
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+    <property name="locations">
+      <list>
+        <value>classpath:sarapi-build.properties</value>
+      </list>
+    </property>
+  </bean>  
+  
+  <import resource="classpath:com/tkmtwo/sarapi/ars-contexts.xml"/>
+  <import resource="classpath:com/tkmtwo/sarapi/ars-admin-source.xml"/>
+  
+  
+  <bean id="authenticationManager"
+        class="org.springframework.security.authentication.ProviderManager">
+    <property name="providers">
+      <list>
+        <ref bean="arsAuthenticationProvider"/>
+      </list>
+    </property>
+  </bean>
+  
+  <bean id="arsAuthenticationProvider"
+        class="com.tkmtwo.sarapi.security.ArsAuthenticationProvider">
+    <!-- <property name="userDetailsService" ref="userDetailsService" /> -->
+    <property name="arsContext">
+      <bean class="com.tkmtwo.sarapi.ArsContext">
+        <property name="hostName" value="${ars.host.0}" />
+        <property name="hostPort" value="${ars.port.0}" />
+      </bean>
+    </property>
+  </bean>
+  
+  
+</beans>

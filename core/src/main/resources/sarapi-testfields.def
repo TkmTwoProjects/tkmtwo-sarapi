@@ -1,0 +1,471 @@
+char-set: UTF-8
+#
+#  File exported Sat Dec 06 02:47:03 2014
+#
+begin schema
+   name           : SARAPI:TestFields
+   core-version   : 2
+   upgrade-version: 0
+   num-fields     : 24
+   timestamp      : 1393676078
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   default-vui    : Default Administrator View
+   num-vuis       : 1
+   export-version : 11
+   schema-type    : 1
+   next-field-id  : 536870912
+   get-list-flds  : 10\8\10\0\\536870913\10\0\\536870918\10\0\\536870920\10\0\\536870919\10\0\\536870922\10\0\\536870915\10\0\\536870916\10\0\\536870917\10\0\\536870921\10\
+   get-list-flds  : 0\
+   object-prop    : 4\60050\2\1\60062\2\1\90015\2\4\90016\4\1\1\
+   archive        : 0\0\0
+      arch-time   : 0\0\0\0
+      arch-from   : 
+   audit          : 0\0\0\0\
+vui  {
+   id             : 536870912
+   name           : Default Administrator View
+   label          : Default Administrator View
+   timestamp      : 1393485388
+   vui-locale     : 
+   vui-type       : 1
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   display-prop   : 1\20\4\26\Default Administrator View\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1
+   name           : Request ID
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 15
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\14\3\41\2\5399\2500\28233\4600\4\6\1\7\40\2147483640\20\4\10\Request ID\21\41\2\0\400\7086\2100\27\8\16\28\6\4\29\6\1\60\40\1\65\41\2\0\0\0\0\143\4&
+ display-instance : 0\4294967295\151\41\2\7649\0\22834\2100\170\40\0\231\6\1\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 2
+   name           : Submitter
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : $-1$
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\6074\5000\31158\7100\4\6\1\7\40\2147483641\20\4\9\Submitter\21\41\2\0\400\6411\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0\0\0\&
+ display-instance : 0\66\41\2\22722\0\25084\2100\143\40\4294967295\151\41\2\6974\0\22159\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 3
+   name           : Create Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5061\7500\31157\9600\4\6\1\7\40\2147483642\20\4\11\Create Date\21\41\2\0\400\7424\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2\0\0&
+ display-instance : \0\0\66\41\2\23734\0\26096\2100\143\40\4294967295\151\41\2\7986\0\23171\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 4
+   name           : Assigned To
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5511\10000\31157\12100\4\6\1\7\40\2147483643\20\4\11\Assigned To\21\41\2\0\400\6974\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0&
+ display-instance : \0\0\0\66\41\2\23284\0\25646\2100\143\40\4294967295\151\41\2\7536\0\22721\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 5
+   name           : Last Modified By
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\2699\12500\31157\14600\4\6\1\7\40\2147483644\20\4\16\Last Modified By\21\41\2\0\400\9786\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\33\65\4&
+ display-instance : 1\2\0\0\0\0\66\41\2\26096\0\28458\2100\143\40\4294967295\151\41\2\10348\0\25533\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 6
+   name           : Modified Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\4049\15000\31158\17100\4\6\1\7\40\2147483645\20\4\13\Modified Date\21\41\2\0\400\8436\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2&
+ display-instance : \0\0\0\0\66\41\2\24746\0\27108\2100\143\40\4294967295\151\41\2\8998\0\24183\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 7
+   name           : Status
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 1
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   enum-value     : New
+   enum-value     : Assigned
+   enum-value     : Fixed
+   enum-value     : Rejected
+   enum-value     : Closed
+   default        : 0
+   permission     : 3\1
+   permission     : 4\2
+ display-instance : 536870912\17\3\41\2\7986\17500\42406\19300\4\6\1\7\40\2147483646\20\4\6\Status\21\41\2\0\400\4499\1800\27\8\16\28\6\4\29\6\1\60\40\1\61\40\0\64\6\1\65\41\2\0&
+ display-instance : \0\0\0\143\40\4294967295\151\41\2\5061\400\34419\2200\170\40\0\230\4\46\5\0\New\1\Assigned\2\Fixed\3\Rejected\4\Closed\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 8
+   name           : Short Description
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : .
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\1012\20000\31158\22100\4\6\1\7\40\2147483647\20\4\17\Short Description\21\41\2\0\400\11473\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\50\65&
+ display-instance : \41\2\0\0\0\0\66\41\2\27784\0\30146\2100\143\40\4294967295\151\41\2\12035\0\27220\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 15
+   name           : Status History
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 3\1
+   permission     : 4\2
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870913
+   name           : Character Field
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\50168\5300\77164\7400\4\6\1\5\6\2\7\40\2147483648\14\40\1\20\4\15\Character Field\21\41\2\0\400\8323\2100\60\40\1\66\41\2\24634\0\26996\2&
+ display-instance : 100\143\40\4294967295\151\41\2\8886\0\24071\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870914
+   name           : Diary Field
+   datatype       : 5
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\18\3\41\2\53093\9900\77614\12000\4\6\1\5\6\2\7\40\2147483649\14\40\1\20\4\11\Diary Field\21\41\2\0\400\5849\2100\60\40\1\66\41\2\22159\0\24521\2100&
+ display-instance : \143\40\4294967295\151\41\2\6411\0\21596\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870915
+   name           : Date Field
+   datatype       : 13
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 0\2
+ display-instance : 536870912\16\3\41\2\94375\6400\118784\8500\4\6\1\5\6\2\7\40\2147483650\14\40\1\20\4\10\Date Field\21\41\2\0\400\5736\2100\66\41\2\22047\0\24409\2100\143\40\4&
+ display-instance : 294967295\151\41\2\6299\0\21484\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870916
+   name           : Time Field
+   datatype       : 14
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 0\2
+ display-instance : 536870912\16\3\41\2\96287\10700\120696\12800\4\6\1\5\6\2\7\40\2147483651\14\40\1\20\4\10\Time Field\21\41\2\0\400\5736\2100\66\41\2\22047\0\24409\2100\143\40&
+ display-instance : \4294967295\151\41\2\6299\0\21484\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870917
+   name           : Date/Time Field
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 0\2
+ display-instance : 536870912\16\3\41\2\92013\15400\119572\17500\4\6\1\5\6\2\7\40\2147483652\14\40\1\20\4\15\Date/Time Field\21\41\2\0\400\8886\2100\66\41\2\25196\0\27558\2100\1&
+ display-instance : 43\40\4294967295\151\41\2\9448\0\24633\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870918
+   name           : Integer Field
+   datatype       : 2
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   range-low      : -2147483647
+   range-high     : 2147483647
+   permission     : 0\2
+ display-instance : 536870912\16\3\41\2\63329\21300\85938\23400\4\6\1\5\6\2\7\40\2147483653\14\40\1\20\4\13\Integer Field\21\41\2\0\400\6861\2100\62\6\1\66\41\2\0\0\0\0\143\40\4&
+ display-instance : 294967295\151\41\2\7424\0\22609\2100\170\40\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870919
+   name           : Real Number Field
+   datatype       : 3
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   range-low      : -18450000000000000000.000000
+   range-high     : 18450000000000000000.000000
+   precision      : 6
+   permission     : 0\2
+ display-instance : 536870912\15\3\41\2\61642\25900\87513\28000\4\6\1\5\6\2\7\40\2147483654\14\40\1\20\4\17\Real Number Field\21\41\2\0\400\10123\2100\66\41\2\0\0\0\0\143\40\429&
+ display-instance : 4967295\151\41\2\10686\0\25871\2100\170\40\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870920
+   name           : Decimal Number Field
+   datatype       : 10
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   range-low      : -99999999999999999999999999.99
+   range-high     : 99999999999999999999999999.99
+   precision      : 2
+   permission     : 0\2
+ display-instance : 536870912\15\3\41\2\62654\30100\90325\32200\4\6\1\5\6\2\7\40\2147483655\14\40\1\20\4\20\Decimal Number Field\21\41\2\0\400\11923\2100\66\41\2\0\0\0\0\143\40\&
+ display-instance : 4294967295\151\41\2\12485\0\27670\2100\170\40\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870921
+   name           : Currency Field
+   datatype       : 12
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   range-low      : -99999999999999999999999999.99
+   range-high     : 99999999999999999999999999.99
+   precision      : 10
+   func-codes     : 1\USD\2\
+   allow-codes    : 0\
+   permission     : 0\2
+ display-instance : 536870912\17\3\41\2\62992\34500\92463\36600\4\6\1\5\6\2\7\40\2147483656\14\40\1\20\4\14\Currency Field\21\41\2\0\400\7874\2100\65\41\2\24184\0\26546\2100\66\&
+ display-instance : 41\2\27109\0\29471\2100\143\40\4294967295\151\41\2\8436\0\23621\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870922
+   name           : Drop-Down List Field
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393485388
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   enum-value     : Clear
+   enum-value     : Red
+   enum-value     : Green
+   enum-value     : Blue
+   default        : 0
+   permission     : 0\2
+ display-instance : 536870912\17\3\41\2\23622\29100\43869\31200\4\6\1\5\6\2\7\40\2147483657\14\40\1\20\4\20\Drop-Down List Field\21\41\2\0\400\11361\2100\60\40\1\64\6\0\143\40\4&
+ display-instance : 294967295\151\41\2\11923\0\20246\2100\170\40\0\230\4\30\4\0\Clear\1\Red\2\Green\3\Blue\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870923
+   name           : Attachment Pool
+   datatype       : 37
+   fieldtype      : 0
+   create-mode    : 2
+   option         : 4
+   timestamp      : 1393673942
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 0\1
+ display-instance : 536870912\16\3\41\2\25871\42800\64791\53300\4\6\1\7\40\2147483658\14\40\1\20\4\15\Attachment Pool\143\40\4294967295\170\40\0\232\4\3\Add\233\4\6\Delete\234\4&
+ display-instance : \7\Display\235\4\4\Save\236\4\11\Attach Name\237\4\9\File Name\238\4\8\Max Size\271\4\8\Deselect\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870924
+   name           : Attachment1
+   datatype       : 11
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393673942
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   maxsize        : 0
+   attachtype     : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\5\3\41\2\0\0\10011\0\4\6\1\20\4\11\Attachment1\143\40\1\170\40\536870923\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870925
+   name           : Attachment2
+   datatype       : 11
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393673942
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   maxsize        : 0
+   attachtype     : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\5\3\41\2\0\0\10011\0\4\6\1\20\4\11\Attachment2\143\40\2\170\40\536870923\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870926
+   name           : Attachment3
+   datatype       : 11
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1393673942
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   maxsize        : 0
+   attachtype     : 1
+   fulltext-optns : 0
+   permission     : 0\2
+ display-instance : 536870912\5\3\41\2\0\0\10011\0\4\6\1\20\4\11\Attachment3\143\40\3\170\40\536870923\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870927
+   name           : Text
+   datatype       : 31
+   fieldtype      : 0
+   create-mode    : 2
+   option         : 4
+   timestamp      : 1393676078
+   owner          : thomas.k.mahaffey
+   last-changed   : thomas.k.mahaffey
+   permission     : 0\1
+ display-instance : 536870912\16\1\6\3\3\41\2\80427\47600\104049\51600\4\6\1\5\6\2\7\40\2147483659\14\40\1\24\4\4\0x00\80\4\20\Some Text Trim Label\81\4\6\Editor\83\4\20\Some Te&
+ display-instance : xt Trim Label\90\6\2\91\6\2\143\40\4294967295\170\40\0\274\6\0\310\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+end

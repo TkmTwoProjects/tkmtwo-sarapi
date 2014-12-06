@@ -1,0 +1,9 @@
+
+
+include 'core'
+//include 'adoc'
+
+rootProject.children.each { project ->
+  project.buildFileName = "${project.name}.gradle"
+}
+

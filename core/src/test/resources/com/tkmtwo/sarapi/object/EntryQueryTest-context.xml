@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+  
+  <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+    <property name="ignoreResourceNotFound" value="false" />
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+    <property name="locations">
+      <list>
+        <value>classpath:sarapi-build.properties</value>
+      </list>
+    </property>
+  </bean>  
+
+  <import resource="classpath:com/tkmtwo/sarapi/ars-contexts.xml"/>
+  <import resource="classpath:com/tkmtwo/sarapi/ars-admin-source.xml"/>
+
+
+
+  <!--
+  <bean id="arsFormFields" class="com.tkmtwo.sarapi.arsys.object.ArsFormFields">
+    <property name="arsSchemaHelper">
+      <ref local="arsSchemaHelper" />
+    </property>
+    <property name="formName" value="DEV:Test Form" />
+    <property name="fieldNames">
+      <util:list value-type="java.lang.String">
+        <value>Integer Field</value>
+        <value>Real Number Field</value>
+        <value>Character Field</value>
+        <value>Diary Field</value>
+        <value>Date/Time Field</value>
+        <value>Date Field</value>
+        <value>Time Field</value>
+        <value>Decimal Number Field</value>
+        <value>Currency Field</value>
+        <value>Drop-Down List Field</value>
+        <value>Radio Button Field</value>
+        <value>Check Box Field</value>
+      </util:list>
+    </property>
+  </bean>
+
+      <value>Integer Field</value>
+      <value>Real Number Field</value>
+      <value>Character Field</value>
+      <value>Diary Field</value>
+      <value>Drop-Down List Field</value>
+      <value>Date/Time Field</value>
+      <value>Decimal Number Field</value>
+      <value>Currency Field</value>
+      <value>Date Field</value>
+      <value>Time Field</value>
+      <value>Attachment1</value>
+      <value>Attachment1</value>
+      <value>Attachment3</value>
+
+
+  -->
+
+
+
+  <bean id="entryQueryNoQualification"
+        class="com.tkmtwo.sarapi.object.EntryQuery">
+    <property name="template">
+      <ref bean="arsAdminTemplate" />
+    </property>
+    <property name="schemaHelper">
+      <ref bean="arsSchemaHelper" />
+    </property>
+    <property name="formName" value="SARAPI:TestFields" />
+    <property name="fieldNames">
+      <util:list>
+        <value>Integer Field</value>
+        <value>Real Number Field</value>
+        <value>Character Field</value>
+        <value>Diary Field</value>
+        <value>Drop-Down List Field</value>
+        <value>Date/Time Field</value>
+        <value>Decimal Number Field</value>
+        <value>Currency Field</value>
+        <value>Date Field</value>
+        <value>Time Field</value>
+        <value>Attachment1</value>
+        <value>Attachment1</value>
+        <value>Attachment3</value>
+      </util:list>
+    </property>
+    <property name="sortSpecs">
+      <util:map>
+        <entry key="Request ID" value="desc" />
+        <!-- <entry key="" value="" /> -->
+      </util:map>
+    </property>
+  </bean>
+
+
+  <bean id="entryQueryWithQualification"
+        class="com.tkmtwo.sarapi.object.EntryQuery">
+    <property name="template">
+      <ref bean="arsAdminTemplate" />
+    </property>
+    <property name="schemaHelper">
+      <ref bean="arsSchemaHelper" />
+    </property>
+    <property name="qualifierInfoCreator">
+      
+      <bean class="com.tkmtwo.sarapi.InterpolatingQualifierInfoCreator">
+        <property name="schemaHelper">
+          <ref bean="arsSchemaHelper" />
+        </property>
+        <property name="formName" value="SARAPI:TestFields" />
+        <property name="qualifierString">
+          <value>
+            <![CDATA[
+                     'Character Field' = ${0}
+            ]]>
+          </value>
+        </property>
+      </bean>
+      
+    </property>
+    <property name="formName" value="SARAPI:TestFields" />
+    <property name="fieldNames">
+      <util:list>
+        <value>Integer Field</value>
+        <value>Real Number Field</value>
+        <value>Character Field</value>
+        <value>Diary Field</value>
+        <value>Drop-Down List Field</value>
+        <value>Date/Time Field</value>
+        <value>Decimal Number Field</value>
+        <value>Currency Field</value>
+        <value>Date Field</value>
+        <value>Time Field</value>
+        <value>Attachment1</value>
+        <value>Attachment1</value>
+        <value>Attachment3</value>
+      </util:list>
+    </property>
+    <!--
+    <property name="arsFormFields">
+      <ref bean="arsFormFields" />
+    </property>
+    -->
+  </bean>
+
+
+</beans>
