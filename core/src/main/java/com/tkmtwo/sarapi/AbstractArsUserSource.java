@@ -81,6 +81,11 @@ public abstract class AbstractArsUserSource
   }
     
   public void setArsContexts(List<ArsContext> l) { arsContexts = l; }
+
+  /*
+  public void setArsContextsConnectionStrings(Iterable<String> i) {
+    ImmutableList.Builder<String> ilb = new ImmutableList.Builder<String>();
+  */
   
   
   public String getUserName() { return userName; }

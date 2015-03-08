@@ -18,10 +18,13 @@
 package com.tkmtwo.sarapi;
 
 import static com.google.common.base.Preconditions.checkState;
+import static com.google.common.base.TkmTwoStrings.isBlank;
 
 import com.google.common.base.Objects;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ComparisonChain;
 import java.io.Serializable;
+import java.util.List;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
@@ -39,11 +42,28 @@ public final class ArsContext
   implements Comparable<ArsContext>, Serializable, FactoryBean, InitializingBean, DisposableBean {
 
   private static final long serialVersionUID = 1L;
+  
+  private static final Splitter COLON_SPLITTER = Splitter.on(':').trimResults();
+    
 
   private String hostName;
   private Integer hostPort;
 
-
+  public ArsContext() { }
+  
+  public ArsContext(String s, Integer i) {
+    setHostName(s);
+    setHostPort(i);
+  }
+  public ArsContext(String s, String i) {
+    setHostName(s);
+    if (i != null) {
+      setHostPort(Integer.valueOf(i));
+    }
+  }
+  public ArsContext(String s) {
+    setConnectionString(s);
+  }
   public String getHostName() { return hostName; }
   public void setHostName(String s) { hostName = s; }
 
@@ -53,9 +73,24 @@ public final class ArsContext
   
 
   public String getConnectionString() {
-    return String.format("%s:%s", getHostName(), String.valueOf(getHostPort()));
+    //return String.format("%s:%s", getHostName(), String.valueOf(getHostPort()));
+    StringBuffer sb = new StringBuffer();
+    if (getHostName() != null) {
+      sb.append(getHostName());
+    }
+    sb.append(":");
+    if (getHostPort() != null) {
+      sb.append(getHostPort().toString());
+    }
+    
+    return sb.toString();
   }
-  
+  public void setConnectionString(String s) {
+    List<String> ss = COLON_SPLITTER.splitToList(s);
+    if (ss.size() >= 1) { setHostName(ss.get(0)); }
+    if (ss.size() >= 2 && !isBlank(ss.get(1))) { setHostPort(Integer.valueOf(ss.get(1))); }
+    
+  }
   
   
   
