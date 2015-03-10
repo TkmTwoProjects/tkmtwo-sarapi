@@ -19,8 +19,9 @@ package com.tkmtwo.sarapi;
 
 import static com.google.common.base.TkmTwoConditions.checkNotBlank;
 
-import com.google.common.base.Splitter.MapSplitter;
-import com.google.common.base.Splitter;
+//import com.google.common.base.Splitter.MapSplitter;
+//import com.google.common.base.Splitter;
+import com.google.common.base.TkmTwoJointers;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import java.util.List;
@@ -33,8 +34,8 @@ public final class ArsSource
   implements InitializingBean {
   //implements ArsUserSource, FactoryBean, InitializingBean, DisposableBean {
 
-  private static final MapSplitter MAP_SPLITTER = Splitter.on('&').trimResults().withKeyValueSeparator('=');
-  private static final Splitter COMMA_SPLITTER = Splitter.on(',').trimResults();
+  //private static final MapSplitter MAP_SPLITTER = Splitter.on('&').trimResults().withKeyValueSeparator('=');
+  //private static final Splitter COMMA_SPLITTER = Splitter.on(',').trimResults();
 
   private String environmentName;
   private String connectionString;
@@ -77,7 +78,8 @@ public final class ArsSource
   
   private List<ArsContext> buildContexts() {
     Map<String,String> m = getConfigurationMap();
-    Iterable<String> i = COMMA_SPLITTER.split(checkNotBlank(m.get("contexts"), "Need some ars contexts."));
+    Iterable<String> i =
+      TkmTwoJointers.COMMA_SPLITTER.split(checkNotBlank(m.get("contexts"), "Need some ars contexts."));
     
     ImmutableList.Builder<ArsContext> ilb = new ImmutableList.Builder<ArsContext>();
     for (String s : i) {
@@ -123,7 +125,8 @@ public final class ArsSource
   public void afterPropertiesSet() {
 
     //checkNotBlank(getConnectionString(), "Need a connection string.");
-    setConfigurationMap(MAP_SPLITTER.split(checkNotBlank(getConnectionString(), "Need a connection string.")));
+    setConfigurationMap(TkmTwoJointers.MAP_SPLITTER.split(checkNotBlank(getConnectionString(),
+                                                                        "Need a connection string.")));
     //Map<String,String> cm = MAP_SPLITTER.split(getConnectionString());
 
     //build the environment name

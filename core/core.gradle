@@ -13,6 +13,7 @@ checkstyle {
 
 dependencies {
   compile "com.tkmtwo:tkmtwo-arapi:7.6.4.2.201401310252"
+  compile "com.tkmtwo:tkmtwo-common:${depVersionTkmTwoCommon}"
   compile "com.tkmtwo:tkmtwo-interpolate:${depVersionTkmTwoInterpolate}"
   compile "com.tkmtwo:tkmtwo-timex:${depVersionTkmTwoTimex}"
   compile "commons-pool:commons-pool:${depVersionCommonsPool}"

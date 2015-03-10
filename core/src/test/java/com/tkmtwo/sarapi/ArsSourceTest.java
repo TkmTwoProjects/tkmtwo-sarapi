@@ -17,7 +17,8 @@ public final class ArsSourceTest {
     sb
       .append("environmentName=itsmtesting.accenture.com")
       .append("&userName=itsm.app")
-      .append("&userPassword=somepassword")
+      //.append("&userPassword=somepassword")
+      .append("&userPassword=itsmAppTst")
       .append("&contexts=wtrsfes19202:1803,wtrsfes19203:1803");
     ArsSource as = new ArsSource(sb.toString());
 
@@ -25,6 +26,14 @@ public final class ArsSourceTest {
     as.afterPropertiesSet();
     
     ArsField af = as.getSchemaHelper().getField("User", "Login Name");
-    System.out.println("Field is " + af.toString());
+    assertEquals(Integer.valueOf(101), af.getId());
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testError() {
+    String nullString = null;
+    ArsSource as = new ArsSource(nullString);
+    as.afterPropertiesSet();
+  }
+    
 }
