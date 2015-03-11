@@ -24,18 +24,19 @@ import static com.google.common.base.TkmTwoConditions.checkNotBlank;
 import com.google.common.base.TkmTwoJointers;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
+import com.tkmtwo.sarapi.security.SecureArsUserSource;
 import java.util.List;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 
 public final class ArsSource
   implements InitializingBean {
-  //implements ArsUserSource, FactoryBean, InitializingBean, DisposableBean {
 
-  //private static final MapSplitter MAP_SPLITTER = Splitter.on('&').trimResults().withKeyValueSeparator('=');
-  //private static final Splitter COMMA_SPLITTER = Splitter.on(',').trimResults();
+  protected final Logger logger = LoggerFactory.getLogger(getClass());
 
   private String environmentName;
   private String connectionString;
@@ -91,12 +92,39 @@ public final class ArsSource
   }
   
   private ArsUserSource buildUserSource() {
+    if (Boolean.valueOf(getConfigurationMap().get("secure"))) {
+      return buildSecureUserSource();
+    }
+    return buildBasicUserSource();
+  }
+  
+  private ArsUserSource buildSecureUserSource() {
+    logger.info("Secure user source has been requested.");
+    
+    Map<String,String> m = getConfigurationMap();
+    SecureArsUserSource sus = new SecureArsUserSource();
+    sus.setUserName(checkNotBlank(m.get("userName"), "Need a user name."));
+    sus.setUserPassword(checkNotBlank(m.get("userPassword"), "Need a password."));
+    sus.setArsContexts(getContexts());
+    
+    if (m.containsKey("locale")) { sus.setLocale(m.get("locale")); }
+    if (m.containsKey("timeZone")) { sus.setTimeZone(m.get("timeZone")); }
+    if (m.containsKey("customDateFormat")) { sus.setCustomDateFormat(m.get("customDateFormat")); }
+    if (m.containsKey("customTimeFormat")) { sus.setCustomTimeFormat(m.get("customTimeFormat")); }
+    
+    sus.afterPropertiesSet();
+    return sus;
+  }
+  private ArsUserSource buildBasicUserSource() {
+    logger.info("Basic user source has been requested.");
+    
     Map<String,String> m = getConfigurationMap();
     BasicArsUserSource aus = new BasicArsUserSource();
     aus.setUserName(checkNotBlank(m.get("userName"), "Need a user name."));
     aus.setUserPassword(checkNotBlank(m.get("userPassword"), "Need a password."));
     aus.setArsContexts(getContexts());
     
+    if (m.containsKey("impersonatedUser")) { aus.setImpersonatedUser(m.get("impersonatedUser")); }
     if (m.containsKey("locale")) { aus.setLocale(m.get("locale")); }
     if (m.containsKey("timeZone")) { aus.setTimeZone(m.get("timeZone")); }
     if (m.containsKey("customDateFormat")) { aus.setCustomDateFormat(m.get("customDateFormat")); }
