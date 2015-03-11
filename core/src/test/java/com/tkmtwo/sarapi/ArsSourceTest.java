@@ -37,6 +37,17 @@ public final class ArsSourceTest {
   
   
   @Test(expected = AuthenticationCredentialsNotFoundException.class)
+  public void testSecureWithoutAuthentication() {
+    ArsSource as = new ArsSource(getConnectionStringSecure());
+    as.afterPropertiesSet();
+    ArsUserSource aus = as.getSecureUserSource();
+    
+    assertNotNull(aus);
+    aus.getARServerUser();
+  }
+
+
+  @Test
   public void testSecure() {
     ArsSource as = new ArsSource(getConnectionStringSecure());
     as.afterPropertiesSet();

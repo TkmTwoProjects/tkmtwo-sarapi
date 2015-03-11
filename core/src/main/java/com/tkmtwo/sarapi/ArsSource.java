@@ -43,8 +43,13 @@ public final class ArsSource
   private Map<String,String> configurationMap;
   
   private List<ArsContext> contexts;
+  
   private ArsUserSource userSource;
+  private ArsUserSource secureUserSource;
+  
   private ArsTemplate template;
+  private ArsTemplate secureTemplate;
+  
   private ArsSchemaHelper schemaHelper;
   
   public ArsSource(String s) { setConnectionString(s); }
@@ -64,11 +69,26 @@ public final class ArsSource
   public ArsUserSource getUserSource() { return userSource; }
   private void setUserSource(ArsUserSource aus) { userSource = aus; }
   
+  public ArsUserSource getSecureUserSource() { return secureUserSource; }
+  private void setSecureUserSource(ArsUserSource aus) { secureUserSource = aus; }
+  
   public ArsTemplate getTemplate() { return template; }
   private void setTemplate(ArsTemplate at) { template = at; }
   
+  public ArsTemplate getSecureTemplate() { return secureTemplate; }
+  private void setSecureTemplate(ArsTemplate at) { secureTemplate = at; }
+  
   public ArsSchemaHelper getSchemaHelper() { return schemaHelper; }
   private void setSchemaHelper(ArsSchemaHelper ash) { schemaHelper = ash; }
+  
+  
+  public boolean isSecure() {
+    return Boolean.valueOf(getConfigurationMap().get("secure")).booleanValue();
+  }
+  
+  
+  
+  
   
   
   
@@ -90,32 +110,17 @@ public final class ArsSource
     }
     return ilb.build();
   }
-  
+
+  /*  
   private ArsUserSource buildUserSource() {
     if (Boolean.valueOf(getConfigurationMap().get("secure"))) {
       return buildSecureUserSource();
     }
     return buildBasicUserSource();
   }
+  */
   
-  private ArsUserSource buildSecureUserSource() {
-    logger.info("Secure user source has been requested.");
-    
-    Map<String,String> m = getConfigurationMap();
-    SecureArsUserSource sus = new SecureArsUserSource();
-    sus.setUserName(checkNotBlank(m.get("userName"), "Need a user name."));
-    sus.setUserPassword(checkNotBlank(m.get("userPassword"), "Need a password."));
-    sus.setArsContexts(getContexts());
-    
-    if (m.containsKey("locale")) { sus.setLocale(m.get("locale")); }
-    if (m.containsKey("timeZone")) { sus.setTimeZone(m.get("timeZone")); }
-    if (m.containsKey("customDateFormat")) { sus.setCustomDateFormat(m.get("customDateFormat")); }
-    if (m.containsKey("customTimeFormat")) { sus.setCustomTimeFormat(m.get("customTimeFormat")); }
-    
-    sus.afterPropertiesSet();
-    return sus;
-  }
-  private ArsUserSource buildBasicUserSource() {
+  private ArsUserSource buildUserSource() {
     logger.info("Basic user source has been requested.");
     
     Map<String,String> m = getConfigurationMap();
@@ -133,10 +138,36 @@ public final class ArsSource
     aus.afterPropertiesSet();
     return aus;
   }
+    
+  private ArsUserSource buildSecureUserSource() {
+    if (!isSecure()) { return null; }
+    
+    Map<String,String> m = getConfigurationMap();
+    SecureArsUserSource sus = new SecureArsUserSource();
+    sus.setUserName(checkNotBlank(m.get("userName"), "Need a user name."));
+    sus.setUserPassword(checkNotBlank(m.get("userPassword"), "Need a password."));
+    sus.setArsContexts(getContexts());
+    
+    if (m.containsKey("locale")) { sus.setLocale(m.get("locale")); }
+    if (m.containsKey("timeZone")) { sus.setTimeZone(m.get("timeZone")); }
+    if (m.containsKey("customDateFormat")) { sus.setCustomDateFormat(m.get("customDateFormat")); }
+    if (m.containsKey("customTimeFormat")) { sus.setCustomTimeFormat(m.get("customTimeFormat")); }
+    
+    sus.afterPropertiesSet();
+    return sus;
+  }
   
   private ArsTemplate buildTemplate() {
     ArsTemplate at = new ArsTemplate();
     at.setUserSource(getUserSource());
+    at.afterPropertiesSet();
+    return at;
+  }
+  
+  private ArsTemplate buildSecureTemplate() {
+    if (!isSecure()) { return null; }
+    ArsTemplate at = new ArsTemplate();
+    at.setUserSource(getSecureUserSource());
     at.afterPropertiesSet();
     return at;
   }
@@ -167,10 +198,12 @@ public final class ArsSource
     //build the usersource
     //setUserSource(buildUserSource(cm));
     setUserSource(buildUserSource());
+    setSecureUserSource(buildSecureUserSource());
     
     
     //build the template
     setTemplate(buildTemplate());
+    setSecureTemplate(buildTemplate());
 
     //build the schemahelper
     setSchemaHelper(buildSchemaHelper());
