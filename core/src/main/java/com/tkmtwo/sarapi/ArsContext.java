@@ -22,7 +22,9 @@ import static com.google.common.base.TkmTwoStrings.isBlank;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
+import com.google.common.base.TkmTwoJointers;
 import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableList;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.beans.factory.DisposableBean;
@@ -43,7 +45,7 @@ public final class ArsContext
 
   private static final long serialVersionUID = 1L;
   
-  private static final Splitter COLON_SPLITTER = Splitter.on(':').trimResults();
+  //private static final Splitter COLON_SPLITTER = Splitter.on(':').trimResults();
     
 
   private String hostName;
@@ -86,14 +88,24 @@ public final class ArsContext
     return sb.toString();
   }
   public void setConnectionString(String s) {
-    List<String> ss = COLON_SPLITTER.splitToList(s);
+    List<String> ss = TkmTwoJointers.COLON_SPLITTER.splitToList(s);
     if (ss.size() >= 1) { setHostName(ss.get(0)); }
     if (ss.size() >= 2 && !isBlank(ss.get(1))) { setHostPort(Integer.valueOf(ss.get(1))); }
     
   }
   
-  
-  
+  public static ArsContext valueOf(String s) {
+    ArsContext ac = new ArsContext(s);
+    return ac;
+  }
+  public static List<ArsContext> valuesOf(String s) {
+    ImmutableList.Builder<ArsContext> ilb = new ImmutableList.Builder<ArsContext>();
+    for (String cs : TkmTwoJointers.COMMA_SPLITTER.split(s)) {
+      ilb.add(valueOf(cs));
+    }
+    return ilb.build();
+  }
+      
   
   
   

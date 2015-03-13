@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
+import java.util.List;
 
 
 public final class ArsContextTest {
@@ -21,12 +22,6 @@ public final class ArsContextTest {
     assertNull(ac.getHostPort());
     assertEquals("hostname:", ac.getConnectionString());
   }
-  private void verifyNoHostPort(ArsContext ac) {
-    //assertNull(ac.getHostName());
-    assertTrue(ac.getHostName() == null || ac.getHostName().equals(""));
-    assertEquals(Integer.valueOf(1803), ac.getHostPort());
-    assertEquals(":1803", ac.getConnectionString());
-  }
 
   @Test
   public void testConstuctors() {
@@ -40,14 +35,26 @@ public final class ArsContextTest {
     verifyHostNoPort(new ArsContext("hostname", nullString));
     verifyHostNoPort(new ArsContext("hostname:"));
     
-    verifyNoHostPort(new ArsContext(nullString, Integer.valueOf(1803)));
-    verifyNoHostPort(new ArsContext("", Integer.valueOf(1803)));
-    verifyNoHostPort(new ArsContext(nullString, "1803"));
-    verifyNoHostPort(new ArsContext("", "1803"));
-    verifyNoHostPort(new ArsContext(":1803"));
-
   }
   
+  @Test
+  public void testValueOf() {
+    verifyFull(ArsContext.valueOf("hostname:1803"));
+  }
+  
+  @Test
+  public void testValuesOf() {
+    String s = "hostname:1803,hostname:1803,hostname:1803,otherhostname:1804";
+    
+    List<ArsContext> l = ArsContext.valuesOf(s);
+    assertNotNull(l);
+    assertEquals(4, l.size());
+    for (int i = 0; i < 3; i++) {
+      verifyFull(l.get(i));
+    }
+    assertEquals("otherhostname", l.get(3).getHostName());
+    assertEquals(Integer.valueOf(1804), l.get(3).getHostPort());
+  }
   
 
 }
