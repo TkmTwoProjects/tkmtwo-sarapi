@@ -17,8 +17,12 @@
  */
 package com.tkmtwo.sarapi.security;
 
+import static com.google.common.base.TkmTwoConditions.checkNotEmpty;
+import static com.google.common.base.TkmTwoJointers.COMMA_JOINER;
+
 import com.bmc.arsys.api.ARException;
 import com.bmc.arsys.api.ARServerUser;
+import com.google.common.collect.ImmutableList;
 import com.tkmtwo.sarapi.ArsContext;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,25 +47,20 @@ public class ArsAuthenticationProvider
   extends AbstractUserDetailsAuthenticationProvider {
 
   
-  ArsContext arsContext = null;
-  //UserDetailsService userDetailsService = null;
+  //ArsContext arsContext = null;
+  List<ArsContext> arsContexts;
   
-  public ArsContext getArsContext() {
-    return arsContext;
+  public List<ArsContext> getArsContexts() {
+    //return arsContext;
+    return arsContexts;
   }
   public void setArsContext(ArsContext arscs) {
-    arsContext = arscs;
+    //arsContext = arscs;
+    arsContexts = ImmutableList.of(arscs);
   }
-
-  /*  
-  public UserDetailsService getUserDetailsService() {
-    return userDetailsService;
+  public void setArsContexts(List<ArsContext> l) {
+    arsContexts = ImmutableList.copyOf(l);
   }
-  public void setUserDetailsService(UserDetailsService uds) {
-    userDetailsService = uds;
-  }
-  */
-
 
 
 
@@ -93,60 +92,54 @@ public class ArsAuthenticationProvider
                                                 UsernamePasswordAuthenticationToken authentication)
     throws AuthenticationException {
     
+    checkNotEmpty(getArsContexts());
+    
     if (authentication.getCredentials() == null) {
-      /*
-      throw new BadCredentialsException(messages
-                                        .getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials",
-                                                    "No credentials for AR."),
-                                        userDetails);
-      */
       throw new BadCredentialsException(messages
                                         .getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials",
                                                     "No credentials for AR."));
     }
     
     ARServerUser arsu = null;
-    String presentedHostName = getArsContext().getHostName();
-    int presentedHostPort = getArsContext().getHostPort();
     String presentedPassword = authentication.getCredentials().toString();
     String presentedUserName = 
       (authentication.getPrincipal() == null) 
       ? "NONE_PROVIDED" 
       : authentication.getName();
-
-    try {
-      if (presentedHostPort > 0) {
-        arsu = new ARServerUser(presentedUserName,
-                                presentedPassword,
-                                null,
-                                presentedHostName,
-                                presentedHostPort);
-      } else {
-        arsu = new ARServerUser(presentedUserName,
-                                presentedPassword,
-                                null,
-                                presentedHostName);
+    
+    for (ArsContext ac : getArsContexts()) {
+      String presentedHostName = ac.getHostName();
+      int presentedHostPort = ac.getHostPort();
+      
+      try {
+        if (presentedHostPort > 0) {
+          arsu = new ARServerUser(presentedUserName,
+                                  presentedPassword,
+                                  null,
+                                  presentedHostName,
+                                  presentedHostPort);
+        } else {
+          arsu = new ARServerUser(presentedUserName,
+                                  presentedPassword,
+                                  null,
+                                  presentedHostName);
+        }
+        
+        arsu.login();
+        return;
+      } catch (ARException arex) {
+        logger.warn("Login attempt failed: " + arex.getMessage());
       }
-      
-      arsu.login();
-      //authentication.setDetails("HERE ARE SOME DETAILS TO LOOK AT");
-      
-    } catch (ARException arex) {
-      //String arexMsg = arex.getMessage();
-      //NOTE: arex error code 623 is "Authentication failed."
-      
-      /*
-      throw new BadCredentialsException(messages.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials",
-                                                            arex.getMessage()),
-                                        userDetails);
-      */
-      throw new BadCredentialsException(messages.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials",
-                                                            arex.getMessage()));
-
     }
     
+    //String arexMsg = arex.getMessage();
+    //NOTE: arex error code 623 is "Authentication failed."
+    throw new BadCredentialsException(messages.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials",
+                                                          "Could not log in to any of "
+                                                          + COMMA_JOINER.join(getArsContexts())));
+    
+    
   }
-  
   
   
 }
